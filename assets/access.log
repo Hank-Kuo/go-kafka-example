@@ -1,0 +1,50 @@
+{"LEVEL":"error","TIME":"2023-07-23T21:33:02.807+0800","CALLER":"cmd/main.go:57","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"error","TIME":"2023-07-23T21:34:27.814+0800","CALLER":"cmd/main.go:57","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"error","TIME":"2023-07-23T21:35:31.622+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"error","TIME":"2023-07-23T21:37:54.510+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"error","TIME":"2023-07-23T21:40:13.027+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"error","TIME":"2023-07-23T21:49:53.496+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
+{"LEVEL":"info","TIME":"2023-07-23T21:49:53.497+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
+{"LEVEL":"info","TIME":"2023-07-23T21:50:20.080+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
+{"LEVEL":"info","TIME":"2023-07-23T21:53:18.202+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
+{"LEVEL":"fatal","TIME":"2023-07-23T21:53:18.204+0800","CALLER":"server/server.go:46","MESSAGE":"Error http ListenAndServe: listen tcp :8080: bind: address already in use"}
+{"LEVEL":"info","TIME":"2023-07-23T21:54:13.843+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
+{"LEVEL":"fatal","TIME":"2023-07-23T21:54:13.844+0800","CALLER":"server/server.go:46","MESSAGE":"Error http ListenAndServe: listen tcp :8080: bind: address already in use"}
+{"LEVEL":"info","TIME":"2023-07-23T21:56:30.480+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T22:26:14.815+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T22:26:47.568+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T22:33:33.587+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T22:34:42.448+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T22:34:50.577+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:36:52.611+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:38:02.643+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:39:26.565+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:39:29.639+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-25T23:39:34.137+0800","CALLER":"response/response.go:30","MESSAGE":"userRepo.GetAll: expected slice but got ptr"}
+{"LEVEL":"error","TIME":"2023-07-25T23:39:35.597+0800","CALLER":"response/response.go:30","MESSAGE":"userRepo.GetAll: expected slice but got ptr"}
+{"LEVEL":"info","TIME":"2023-07-25T23:40:31.326+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:40:34.336+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:40:51.877+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:40:55.119+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:41:27.813+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:41:30.590+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:41:55.027+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:41:57.817+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:43:18.241+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:43:21.246+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:48:11.432+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:48:14.293+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:50:08.736+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:53:28.212+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-25T23:58:06.074+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-25T23:58:09.004+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T00:16:36.352+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T00:16:39.325+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T00:16:42.022+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T00:17:58.986+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T00:26:03.535+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T00:26:53.574+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T00:26:58.202+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T00:27:59.701+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T00:31:43.015+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T15:33:10.685+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}

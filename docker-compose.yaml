@@ -1,0 +1,112 @@
+version: "3.8"
+
+services: 
+    zookeeper:
+      image: wurstmeister/zookeeper
+      ports:
+        - 2181:2181
+      networks:
+        - web_api
+    
+    kafka:
+      image: wurstmeister/kafka
+      ports:
+        - 9092:9092
+      environment:
+        KAFKA_BROKER_ID: 1
+        KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,OUTSIDE://localhost:9092
+        KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
+        KAFKA_LISTENERS: INTERNAL://0.0.0.0:19092,OUTSIDE://0.0.0.0:9092
+        KAFKA_CREATE_TOPICS: "topic1:1:1"
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      depends_on:
+        - zookeeper
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock     
+      networks:
+        - web_api
+    
+    kowl:
+      image: quay.io/cloudhut/kowl:v1.2.1
+      restart: on-failure
+      ports:
+        - "8080:8080"
+      volumes:
+        - ./config/kowl.yaml:/etc/kowl/config.yaml
+      entrypoint: ./kowl --config.filepath=/etc/kowl/config.yaml
+      depends_on:
+        - kafka
+        - zookeeper
+      networks:
+        - web_api
+    
+    postgesql:
+      image: postgres:12-alpine
+      ports:
+        - "5432:5432"
+      restart: always
+      env_file:
+        - ".env"
+      environment:
+        - POSTGRES_USER=${DB_USER}
+        - POSTGRES_PASSWORD=${DB_PASSWORD}
+        - POSTGRES_DB=${DB_DATABASE}
+      volumes:
+        - ./pgdata:/var/lib/postgresql/data
+      networks:
+        - web_api
+    
+    prometheus:
+      image: prom/prometheus
+      restart: always
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      volumes:
+        - ./config/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:Z
+      command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+        - '--storage.tsdb.path=/prometheus'
+        - '--storage.tsdb.retention=20d'
+        - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+        - '--web.console.templates=/usr/share/prometheus/consoles'
+      ports:
+        - '9090:9090'
+      networks:
+        - web_api
+    
+    node_exporter:
+      restart: always
+      image: prom/node-exporter
+      ports:
+        - '9101:9100'
+      networks:
+        - web_api
+
+    grafana:
+      restart: always
+      image: grafana/grafana
+      ports:
+        - '3001:3000'
+      networks:
+        - web_api
+
+    jaeger:
+      restart: always
+      image: jaegertracing/all-in-one:1.21
+      environment:
+        - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+      ports:
+        - 5775:5775/udp
+        - 6831:6831/udp
+        - 6832:6832/udp
+        - 5778:5778
+        - 16686:16686
+        - 14268:14268
+        - 14250:14250
+        - 9411:9411
+      networks:
+        - web_api
+networks:
+  web_api:
+    driver: bridge

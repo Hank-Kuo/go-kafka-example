@@ -1,0 +1,51 @@
+server:
+  host: ${HOST}
+  port: ${PORT}
+  debug: true
+  readTimeout: 5
+  writeTimeout: 5
+  contextTimeout: 5
+  rateLimitPerSec: 10
+  timezone: UTC
+
+database:
+  adapter: "postgres"
+  host: ${DB_HOST}
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+  db: ${DB_DATABASE}
+  port: 5432
+  maxConns: 20
+  maxLiftimeConns: 7200
+
+logger:
+  development: false
+  disableCaller: false
+  disableStacktrace: false
+  encoding: json
+  level: info
+  filename: assets/access.log
+  fileMaxSize: 10
+  fileMaxAge: 30
+  fileMaxBackups: 5
+  fileIsCompress: false
+
+jaeger:
+  host: ${JAEGER_HOST}
+  port: 14268
+  serviceName: go-kafka-example
+  logSpans: true
+
+metric:
+  url: "localhost:7070"
+  serviceName: go-kafka-example
+
+kafkaTopics:
+  topicName: 
+    - name: product_created
+      partitions: 10
+      replicationFactor: 1
+    - name: product_delete
+      partitions: 10
+      replicationFactor: 1
+   
