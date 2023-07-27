@@ -7,49 +7,18 @@ import (
 
 	"go-kafka-example/internal/server"
 	"go-kafka-example/pkg/database"
+	"go-kafka-example/pkg/kafka"
 	"go-kafka-example/pkg/logger"
 	"go-kafka-example/pkg/tracer"
 
 	"log"
-
-	"github.com/segmentio/kafka-go"
 )
 
-func newKafkaWriter(kafkaURL, topic string) *kafka.Writer {
-	return &kafka.Writer{
-		Addr:     kafka.TCP(kafkaURL),
-		Topic:    topic,
-		Balancer: &kafka.LeastBytes{},
-	}
-}
-
-/*
-kafkaURL := "localhost:9092"
-topic := "topic1"
-
-writer := newKafkaWriter(kafkaURL, topic)
-defer writer.Close()
-fmt.Println("start producing ... !!")
-
-	for i := 0; ; i++ {
-		key := fmt.Sprintf("Key-%d", i)
-		msg := kafka.Message{
-			Value: []byte(fmt.Sprintf("name-%d", i)),
-		}
-		err := writer.WriteMessages(context.Background(), msg)
-		if err != nil {
-			fmt.Println(err)
-		} else {
-			fmt.Println("produced", key)
-		}
-		time.Sleep(1 * time.Second)
-	}
-*/
 func main() {
 
-	log.Println("Starting iShare-api server")
+	log.Println("Starting go-example-kafka-api server")
 	cfg, err := config.GetConf()
-
+	fmt.Print(cfg.Kafka)
 	if err != nil {
 		panic(fmt.Errorf("load config: %v", err))
 	}
@@ -76,8 +45,10 @@ func main() {
 		}
 	}()
 
+	kakfaWriter := kafka.NewWriter(cfg.Kafka.Host, "topic1")
+	defer kakfaWriter.Close()
 	// // init server
-	srv := server.NewServer(cfg, db, apiLogger)
+	srv := server.NewServer(cfg, db, kakfaWriter, apiLogger)
 	if err = srv.Run(); err != nil {
 		apiLogger.Fatal(err)
 	}

@@ -12,6 +12,7 @@ import (
 type Config struct {
 	Server   ServerConfig   `mapstructure:"server"`
 	Database DatabaseConfig `mapstructure:"database"`
+	Kafka    KafkaConfig    `mapstructure:"kakfa"`
 	Logger   LoggerConfig   `mapstructure:"logger"`
 	Jaeger   JaegerConfig   `mapstructure:"jaeger"`
 }
@@ -48,6 +49,16 @@ type LoggerConfig struct {
 	FileMaxAge        int    `mapstructure:"fileMaxAge"`
 	FileMaxBackups    int    `mapstructure:"fileMaxBackups"`
 	FileIsCompress    bool   `mapstructure:"fileIsCompress"`
+}
+
+type topic struct {
+	Name              string `mapstructure:"name"`
+	Partition         int    `mapstructure:"partition"`
+	ReplicationFactor int    `mapstructure:"replicationFactor"`
+}
+type KafkaConfig struct {
+	Host      string  `mapstructure:"host"`
+	TopicName []topic `mapstructure:"topicName"`
 }
 
 type JaegerConfig struct {

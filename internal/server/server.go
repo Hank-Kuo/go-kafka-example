@@ -9,6 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	"github.com/segmentio/kafka-go"
 
 	"go-kafka-example/config"
 	"go-kafka-example/internal/middleware"
@@ -16,19 +17,20 @@ import (
 )
 
 type Server struct {
-	engine *gin.Engine
-	cfg    *config.Config
-	db     *sqlx.DB
-	logger logger.Logger
+	engine      *gin.Engine
+	cfg         *config.Config
+	db          *sqlx.DB
+	kakfaWriter *kafka.Writer
+	logger      logger.Logger
 }
 
-func NewServer(cfg *config.Config, db *sqlx.DB, logger logger.Logger) *Server {
+func NewServer(cfg *config.Config, db *sqlx.DB, kakfaWriter *kafka.Writer, logger logger.Logger) *Server {
 	if cfg.Server.Debug {
 		gin.SetMode(gin.DebugMode)
 	} else {
 		gin.SetMode(gin.ReleaseMode)
 	}
-	return &Server{engine: gin.Default(), cfg: cfg, db: db, logger: logger}
+	return &Server{engine: gin.Default(), cfg: cfg, db: db, kakfaWriter: kakfaWriter, logger: logger}
 }
 
 func (s *Server) Run() error {

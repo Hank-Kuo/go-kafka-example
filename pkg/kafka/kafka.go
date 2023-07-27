@@ -1,31 +1,24 @@
 package kafka
 
 import (
-	"strings"
-
 	"github.com/segmentio/kafka-go"
 )
 
-type Kafka struct {
-	Url      string
-	MinBytes int
-	MaxBytes int
-}
-
-func (k *Kafka) NewWriter(topic string) *kafka.Writer {
+func NewWriter(url string, topic string) *kafka.Writer {
 	return &kafka.Writer{
-		Addr:     kafka.TCP(k.Url),
+		Addr:     kafka.TCP(url),
 		Topic:    topic,
 		Balancer: &kafka.LeastBytes{},
 	}
 }
 
-func (k *Kafka) NewReader(topic string) *kafka.Reader {
-	brokers := strings.Split(k.Url, ",")
+func NewReader(url []string, topic string) *kafka.Reader {
+
 	return kafka.NewReader(kafka.ReaderConfig{
-		Brokers:  brokers,
+		Brokers:  url,
 		Topic:    topic,
-		MinBytes: k.MinBytes, // 10e3, // 10KB
-		MaxBytes: k.MaxBytes, //10e6, // 10MB
+		MinBytes: 10e3, // 10e3, // 10KB
+		MaxBytes: 10e6, //10e6, // 10MB
+		GroupID:  "customer-1",
 	})
 }

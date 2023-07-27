@@ -1,4 +1,4 @@
 
-INSERT INTO users (account, email, password, status) VALUES (
-    'test_user', 'abc123@gmail.com', 'test', false
+INSERT INTO users (email, password, name) VALUES (
+    'abc123@gmail.com', 'test', 'test'
 );

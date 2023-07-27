@@ -1,50 +1,48 @@
-{"LEVEL":"error","TIME":"2023-07-23T21:33:02.807+0800","CALLER":"cmd/main.go:57","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"error","TIME":"2023-07-23T21:34:27.814+0800","CALLER":"cmd/main.go:57","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"error","TIME":"2023-07-23T21:35:31.622+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"error","TIME":"2023-07-23T21:37:54.510+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"error","TIME":"2023-07-23T21:40:13.027+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"error","TIME":"2023-07-23T21:49:53.496+0800","CALLER":"cmd/main.go:56","MESSAGE":"sync /dev/stderr: inappropriate ioctl for device"}
-{"LEVEL":"info","TIME":"2023-07-23T21:49:53.497+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
-{"LEVEL":"info","TIME":"2023-07-23T21:50:20.080+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
-{"LEVEL":"info","TIME":"2023-07-23T21:53:18.202+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
-{"LEVEL":"fatal","TIME":"2023-07-23T21:53:18.204+0800","CALLER":"server/server.go:46","MESSAGE":"Error http ListenAndServe: listen tcp :8080: bind: address already in use"}
-{"LEVEL":"info","TIME":"2023-07-23T21:54:13.843+0800","CALLER":"cmd/main.go:57","MESSAGE":"load database: "}
-{"LEVEL":"fatal","TIME":"2023-07-23T21:54:13.844+0800","CALLER":"server/server.go:46","MESSAGE":"Error http ListenAndServe: listen tcp :8080: bind: address already in use"}
-{"LEVEL":"info","TIME":"2023-07-23T21:56:30.480+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T22:26:14.815+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T22:26:47.568+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T22:33:33.587+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T22:34:42.448+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T22:34:50.577+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:36:52.611+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:38:02.643+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:39:26.565+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:39:29.639+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"error","TIME":"2023-07-25T23:39:34.137+0800","CALLER":"response/response.go:30","MESSAGE":"userRepo.GetAll: expected slice but got ptr"}
-{"LEVEL":"error","TIME":"2023-07-25T23:39:35.597+0800","CALLER":"response/response.go:30","MESSAGE":"userRepo.GetAll: expected slice but got ptr"}
-{"LEVEL":"info","TIME":"2023-07-25T23:40:31.326+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:40:34.336+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:40:51.877+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:40:55.119+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:41:27.813+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:41:30.590+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:41:55.027+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:41:57.817+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:43:18.241+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:43:21.246+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:48:11.432+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:48:14.293+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:50:08.736+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:53:28.212+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-25T23:58:06.074+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-25T23:58:09.004+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-26T00:16:36.352+0800","CALLER":"server/server.go:54","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-26T00:16:39.325+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-26T00:16:42.022+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-26T00:17:58.986+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-26T00:26:03.535+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-26T00:26:53.574+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-26T00:26:58.202+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-26T00:27:59.701+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
-{"LEVEL":"info","TIME":"2023-07-26T00:31:43.015+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
-{"LEVEL":"info","TIME":"2023-07-26T15:33:10.685+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:38:40.960+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:41:26.261+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T17:41:30.045+0800","CALLER":"cmd/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:42:45.180+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T17:42:49.777+0800","CALLER":"producer/main.go:71","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:53:33.629+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T17:53:37.084+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:54:15.845+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T17:54:18.599+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T17:54:53.292+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T17:54:56.093+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T21:52:36.053+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:04:55.531+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T23:11:49.095+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:13:09.923+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-26T23:18:14.710+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:18:17.788+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:20:53.295+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \",\""}
+{"LEVEL":"info","TIME":"2023-07-26T23:21:54.048+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:21:57.233+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:22:01.054+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \"user\""}
+{"LEVEL":"info","TIME":"2023-07-26T23:22:26.213+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:22:29.131+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:22:33.055+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \",\""}
+{"LEVEL":"info","TIME":"2023-07-26T23:23:58.470+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:24:01.070+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:24:04.702+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \",\""}
+{"LEVEL":"info","TIME":"2023-07-26T23:24:38.326+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:24:40.957+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:24:46.779+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \",\""}
+{"LEVEL":"error","TIME":"2023-07-26T23:26:40.327+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: syntax error at or near \",\""}
+{"LEVEL":"info","TIME":"2023-07-26T23:29:37.029+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:29:39.908+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-26T23:29:43.521+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: column \"name\" of relation \"users\" does not exist"}
+{"LEVEL":"info","TIME":"2023-07-26T23:31:05.521+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-26T23:32:10.563+0800","CALLER":"producer/main.go:39","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-27T00:03:11.039+0800","CALLER":"server/server.go:56","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-27T00:03:14.556+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
+{"LEVEL":"error","TIME":"2023-07-27T00:03:20.071+0800","CALLER":"response/response.go:30","MESSAGE":"UserService.Register: userRepo.Create: pq: duplicate key value violates unique constraint \"users_email_key\""}
+{"LEVEL":"info","TIME":"2023-07-27T00:06:10.947+0800","CALLER":"server/server.go:58","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-27T10:26:48.347+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-27T10:32:18.126+0800","CALLER":"server/server.go:58","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-27T10:32:21.911+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-27T10:44:41.721+0800","CALLER":"server/server.go:58","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-27T10:44:45.042+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-27T15:50:08.930+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
+{"LEVEL":"info","TIME":"2023-07-27T15:59:09.321+0800","CALLER":"server/server.go:58","MESSAGE":"Shutdown Server ..."}
+{"LEVEL":"info","TIME":"2023-07-27T15:59:12.793+0800","CALLER":"producer/main.go:40","MESSAGE":"Jaeger connected"}
