@@ -44,6 +44,6 @@ kakfa:
   brokers: 
     - localhost:9092
   topics: 
-    - name: topic1
+    - name: user_email
       partitions: 10
       replicationFactor: 1

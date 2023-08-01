@@ -41,13 +41,17 @@ func (h *httpHandler) Register(c *gin.Context) {
 		return
 	}
 
-	err := h.userSrv.Register(ctx, models.User{
+	if err := h.userSrv.Register(ctx, models.User{
 		Name:     body.Name,
 		Email:    body.Email,
 		Password: body.Password,
-	})
+	}); err != nil {
+		tracer.AddSpanError(span, err)
+		response.Fail(err, h.logger).ToJSON(c)
+		return
+	}
 
-	if err != nil {
+	if err := h.userSrv.PublishEmail(ctx, body.Name, body.Email); err != nil {
 		tracer.AddSpanError(span, err)
 		response.Fail(err, h.logger).ToJSON(c)
 		return

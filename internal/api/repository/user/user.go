@@ -2,7 +2,6 @@ package product
 
 import (
 	"context"
-	"fmt"
 
 	"go-kafka-example/internal/models"
 	"go-kafka-example/pkg/tracer"
@@ -31,7 +30,6 @@ func (r *userRepo) Create(ctx context.Context, user models.User) error {
 	defer span.End()
 
 	sqlQuery := `INSERT INTO users(email, password, name) VALUES ($1, $2, $3)`
-	fmt.Println(user)
 	_, err := r.db.ExecContext(ctx, sqlQuery, user.Email, user.Password, user.Name)
 
 	if err != nil {

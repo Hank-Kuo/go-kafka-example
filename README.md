@@ -13,7 +13,8 @@
 - go-migrate
 - sqlx
 - viper
-- python-kakfa
+- kakfa-python
+- poetry
 
 ## API
 Build up auth/user system that can register and login.
@@ -22,7 +23,7 @@ If user sign up, the system will send a verification code's mail to your mail.
 Listen in http://localhost:8000/api
 
 ```bash
-make run
+make run-producer
 make run-consumer
 make py-consumer
 make py-producer

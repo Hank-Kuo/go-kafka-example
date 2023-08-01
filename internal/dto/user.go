@@ -19,5 +19,6 @@ type LoginResDto struct {
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
 	Status    bool      `json:"status"`
-	CreatedAt time.Time `db:"created_at"`
+	Token     string    `json:"token"`
+	CreatedAt time.Time `json:"created_at"`
 }

@@ -18,7 +18,7 @@ func main() {
 
 	log.Println("Starting go-example-kafka-api server")
 	cfg, err := config.GetConf()
-	fmt.Print(cfg.Kafka)
+
 	if err != nil {
 		panic(fmt.Errorf("load config: %v", err))
 	}
@@ -45,7 +45,7 @@ func main() {
 		}
 	}()
 
-	kakfaWriter := kafka.NewWriter(cfg.Kafka.Host, "topic1")
+	kakfaWriter := kafka.NewWriter(cfg.Kafka.Host, "user_email")
 	defer kakfaWriter.Close()
 	// // init server
 	srv := server.NewServer(cfg, db, kakfaWriter, apiLogger)

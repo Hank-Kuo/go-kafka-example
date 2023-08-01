@@ -18,7 +18,7 @@ services:
         KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
         KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,OUTSIDE:PLAINTEXT
         KAFKA_LISTENERS: INTERNAL://0.0.0.0:19092,OUTSIDE://0.0.0.0:9092
-        KAFKA_CREATE_TOPICS: "topic1:1:1"
+        KAFKA_CREATE_TOPICS: "user_email:1:1"
         KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       depends_on:
         - zookeeper
@@ -33,7 +33,7 @@ services:
       ports:
         - "8080:8080"
       volumes:
-        - ./config/kowl.yaml:/etc/kowl/config.yaml
+        - ./config/kafka/kowl.yaml:/etc/kowl/config.yaml
       entrypoint: ./kowl --config.filepath=/etc/kowl/config.yaml
       depends_on:
         - kafka

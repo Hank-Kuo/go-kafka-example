@@ -17,8 +17,8 @@ func NewReader(url []string, topic string) *kafka.Reader {
 	return kafka.NewReader(kafka.ReaderConfig{
 		Brokers:  url,
 		Topic:    topic,
-		MinBytes: 10e3, // 10e3, // 10KB
-		MaxBytes: 10e6, //10e6, // 10MB
+		MinBytes: 10e3,
+		MaxBytes: 10e6,
 		GroupID:  "customer-1",
 	})
 }
