@@ -8,7 +8,6 @@ packages = [{include = "go_kafka_example"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-kafka-python = "^2.0.2"
 python-dotenv = "^1.0.0"
 pyotp = "^2.9.0"
 confluent-kafka = "^2.2.0"

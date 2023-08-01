@@ -5,7 +5,7 @@ load_dotenv()
 
 CONFIG = {
     "broker": ["localhost:9092"],
-    "topic": "user_email", 
+    "topic": ["user_email"], 
     "producer_acks": "all",
     "producer_retries": 3,
 
