@@ -2,7 +2,6 @@ import logging
 import threading
 import pyotp
 
-
 from kafka_py.adapter.kafka_adapter import MessageProducer, MessageConsumer
 from kafka_py.config.config import  CONFIG
 from kafka_py.utils import logger 
@@ -29,11 +28,9 @@ if __name__ == "__main__":
     email_server.connect()
     logging.info("[Consumer] connect SMTP server")
 
-    # message_producer = MessageProducer(CONFIG)
     message_consumer = MessageConsumer(CONFIG)
     
     # run in background
-    # t1 = threading.Thread(target=message_consumer.listening, args=(msg_process,))
     t1 = threading.Thread(target=main, args=(message_consumer, email_server))
     t1.start()
     

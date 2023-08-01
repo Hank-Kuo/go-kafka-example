@@ -22,6 +22,12 @@ If user sign up, the system will send a verification code's mail to your mail.
 
 Listen in http://localhost:8000/api
 
+provide APIs:
+- login
+- register
+- activate 
+- users
+
 ```bash
 make run-producer
 make run-consumer

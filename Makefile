@@ -21,10 +21,11 @@ migrate-force:
 	migrate --verbose -database "postgres://postgres:postgres@localhost:5432/db?sslmode=disable" -path migrations force ${V}
 
 test:
-	curl -X POST -H "Content-Type: application/json" -d '{"name": "hank_kuo", "email": "hank_kuo@trendmicro.com", "password": "1f23"}' localhost:8000/api/register
+	curl -X POST -H "Content-Type: application/json" -d '{"name": "xxx", "email": "xxxx", "password": "1f23"}' localhost:8000/api/register
 
-py-run:
-	poetry run python -m kafka_py.run
-
+py-consumer:
+	poetry run python -m kafka_py.consumer
+py-producer:
+	poetry run python -m kafka_py.producer
 poetry-export:
 	poetry export -f requirements.txt --without-hashes > requirements.txt

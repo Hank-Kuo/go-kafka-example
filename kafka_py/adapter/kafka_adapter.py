@@ -27,7 +27,6 @@ class MessageProducer1:
             future.get()
         except Exception as err:
             logging.error("[Producer][Fail] Send messages: {}".format(str(err)))
-   
 """
 
 
@@ -64,7 +63,7 @@ class MessageConsumer:
             logging.error("[Consumer] close server")
         finally:
             self.consumer.close()
-        
+
         
 
 class MessageProducer:
