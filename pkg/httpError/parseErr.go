@@ -4,15 +4,18 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"fmt"
 	"net/http"
 	"strings"
 )
 
 func ParseError(err error) *Err {
-
+	fmt.Println(err.Error())
 	switch {
 	case errors.Is(err, sql.ErrNoRows):
 		return NewNotFoundError(err)
+	case strings.Contains(err.Error(), "duplicate"):
+		return NewError(http.StatusBadRequest, "Duplicate email", err)
 	case errors.Is(err, context.DeadlineExceeded):
 		return NewRequestTimeoutError(err)
 	case strings.Contains(err.Error(), "Field validation"):
@@ -43,7 +46,6 @@ func parseValidatorError(err error) *Err {
 		return NewError(http.StatusBadRequest, "Invalid email", err)
 	}
 	return NewBadRequestError(err)
-
 }
 
 func parseSqlErrors(err error) *Err {

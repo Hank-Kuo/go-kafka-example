@@ -3,11 +3,11 @@ import threading
 import pyotp
 
 from kafka_py.adapter.kafka_adapter import MessageProducer, MessageConsumer
-from kafka_py.config.config import  CONFIG
+from kafka_py.config.config import CONFIG
 from kafka_py.utils import logger 
 from kafka_py.utils.email import Email
 from kafka_py.utils.normalize import remove_non_alphabetic
-
+otp_code = pyotp.TOTP("hankkuo", interval=60*15)
 def main(message_consumer, email_server):
     def msg_process(data):
         name = data["name"]

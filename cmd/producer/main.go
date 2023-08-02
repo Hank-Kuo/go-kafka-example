@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"go-kafka-example/config"
-
 	"go-kafka-example/internal/server"
 	"go-kafka-example/pkg/database"
 	"go-kafka-example/pkg/kafka"
@@ -15,7 +14,6 @@ import (
 )
 
 func main() {
-
 	log.Println("Starting go-example-kafka-api server")
 	cfg, err := config.GetConf()
 

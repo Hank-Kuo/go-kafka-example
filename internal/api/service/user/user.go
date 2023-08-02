@@ -3,11 +3,14 @@ package product
 import (
 	"context"
 	"fmt"
+	"net/http"
 
 	"go-kafka-example/config"
+	"go-kafka-example/pkg/httpError"
 	"go-kafka-example/pkg/utils"
 
 	userReop "go-kafka-example/internal/api/repository/user"
+	"go-kafka-example/internal/dto"
 	"go-kafka-example/internal/models"
 	"go-kafka-example/pkg/logger"
 	"go-kafka-example/pkg/tracer"
@@ -17,9 +20,9 @@ import (
 )
 
 type Service interface {
-	Register(ctx context.Context, user models.User) error
+	Register(ctx context.Context, user *dto.RegisterReqDto) error
 	PublishEmail(ctx context.Context, name, email string) error
-	Login(ctx context.Context, eamil, password string) (*models.User, error)
+	Login(ctx context.Context, eamil, password string) (*dto.LoginResDto, error)
 	GetAll(ctx context.Context) ([]*models.User, error)
 }
 
@@ -39,7 +42,7 @@ func NewService(cfg *config.Config, userRepo userReop.Repository, kakfaWriter *k
 	}
 }
 
-func (srv *userSrv) Register(ctx context.Context, user models.User) error {
+func (srv *userSrv) Register(ctx context.Context, user *dto.RegisterReqDto) error {
 	c, span := tracer.NewSpan(ctx, "UserService.Register", nil)
 	defer span.End()
 
@@ -51,14 +54,18 @@ func (srv *userSrv) Register(ctx context.Context, user models.User) error {
 	}
 	user.Password = hashPassword
 
-	if err := srv.userRepo.Create(c, user); err != nil {
+	if err := srv.userRepo.Create(c, models.User{
+		Name:     user.Name,
+		Email:    user.Email,
+		Password: user.Password,
+	}); err != nil {
 		tracer.AddSpanError(span, err)
 		return errors.Wrap(err, "UserService.Register")
 	}
 	return nil
 }
 
-func (srv *userSrv) Login(ctx context.Context, email string, password string) (*models.User, error) {
+func (srv *userSrv) Login(ctx context.Context, email string, password string) (*dto.LoginResDto, error) {
 	c, span := tracer.NewSpan(ctx, "UserService.Login", nil)
 	defer span.End()
 
@@ -69,13 +76,22 @@ func (srv *userSrv) Login(ctx context.Context, email string, password string) (*
 	}
 
 	if err := utils.CheckTextHash(password, user.Password); err != nil {
-		if err != nil {
-			tracer.AddSpanError(span, err)
-			return nil, errors.Wrap(err, "UserService.Login")
+		return nil, errors.New("Field validation: Password error")
+	}
+
+	if !user.Status {
+		return nil, &httpError.Err{
+			Status: http.StatusUnauthorized, Message: "not activate your email", Detail: nil,
 		}
 	}
 
-	return user, nil
+	return &dto.LoginResDto{
+		ID:        user.ID,
+		Name:      user.Name,
+		Email:     user.Email,
+		Status:    user.Status,
+		CreatedAt: user.CreatedAt,
+	}, nil
 }
 
 func (srv *userSrv) GetAll(ctx context.Context) ([]*models.User, error) {

@@ -7,7 +7,6 @@ import (
 
 	userSrv "go-kafka-example/internal/api/service/user"
 	"go-kafka-example/internal/dto"
-	"go-kafka-example/internal/models"
 	"go-kafka-example/pkg/logger"
 	"go-kafka-example/pkg/response"
 	"go-kafka-example/pkg/tracer"
@@ -41,11 +40,7 @@ func (h *httpHandler) Register(c *gin.Context) {
 		return
 	}
 
-	if err := h.userSrv.Register(ctx, models.User{
-		Name:     body.Name,
-		Email:    body.Email,
-		Password: body.Password,
-	}); err != nil {
+	if err := h.userSrv.Register(ctx, &body); err != nil {
 		tracer.AddSpanError(span, err)
 		response.Fail(err, h.logger).ToJSON(c)
 		return
@@ -71,7 +66,7 @@ func (h *httpHandler) Login(c *gin.Context) {
 		return
 	}
 
-	data, err := h.userSrv.Login(ctx, "test", "password")
+	data, err := h.userSrv.Login(ctx, body.Email, body.Password)
 	if err != nil {
 		tracer.AddSpanError(span, err)
 		response.Fail(err, h.logger).ToJSON(c)

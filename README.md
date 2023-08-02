@@ -23,10 +23,10 @@ If user sign up, the system will send a verification code's mail to your mail.
 Listen in http://localhost:8000/api
 
 provide APIs:
-- login
-- register
-- activate 
-- users
+- login[Done] 
+- register[Done]
+- activate
+- users[Done]
 
 ```bash
 make run-producer
@@ -36,6 +36,9 @@ make py-producer
 make docker-up
 make docker-down
 ```
+
+Screenshot
+![OTP email example](./tmp/images/otp_email.png)
 ## Jaeger
 Trace server
 

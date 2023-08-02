@@ -23,7 +23,7 @@ dct = {
 }
 
 def encode_datetime():
-    date = datetime.utcnow().strftime("%Y-%m-%d")
+    date = datetime.utcnow().strftime("%Y%m%d")
     s = ""
     for x in date :
         if x in dct:
