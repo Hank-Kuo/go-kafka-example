@@ -11,7 +11,7 @@ import (
 )
 
 func GenerateOTP(inputString string) (string, error) {
-	otpCode, err := totp.GenerateCodeCustom(inputString, time.Now(), totp.ValidateOpts{
+	otpCode, err := totp.GenerateCodeCustom(inputString, time.Now().UTC(), totp.ValidateOpts{
 		Period:    60 * 15,
 		Skew:      1,
 		Digits:    otp.DigitsSix,
@@ -21,8 +21,8 @@ func GenerateOTP(inputString string) (string, error) {
 	return otpCode, err
 }
 
-func ValidOTP(otpCode string, inputString string) (bool, error) {
-	isValid, err := totp.ValidateCustom(otpCode, inputString, time.Now(), totp.ValidateOpts{
+func ValidOTP(inputString string, otpCode string) (bool, error) {
+	isValid, err := totp.ValidateCustom(otpCode, inputString, time.Now().UTC(), totp.ValidateOpts{
 		Period:    60 * 15,
 		Skew:      1,
 		Digits:    otp.DigitsSix,

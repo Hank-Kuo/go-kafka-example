@@ -12,7 +12,7 @@ import (
 
 type Repository interface {
 	Create(ctx context.Context, user models.User) error
-	Update(ctx context.Context, user models.User) error
+	Update(ctx context.Context, user *models.User) error
 	GetByEmail(ctx context.Context, email string) (*models.User, error)
 	GetAll(ctx context.Context) ([]*models.User, error)
 }
@@ -38,7 +38,19 @@ func (r *userRepo) Create(ctx context.Context, user models.User) error {
 	return nil
 }
 
-func (r *userRepo) Update(ctx context.Context, user models.User) error {
+func (r *userRepo) Update(ctx context.Context, user *models.User) error {
+
+	sqlQuery := `
+	UPDATE users 
+		SET name = COALESCE(NULLIF($2, ''), name),
+			password = COALESCE(NULLIF($3, ''), password),
+			status = $4
+		WHERE email = $1`
+
+	if _, err := r.db.ExecContext(ctx, sqlQuery, user.Email, user.Name, user.Email, user.Status); err != nil {
+		return errors.Wrap(err, "userRepo.Update")
+	}
+
 	return nil
 }
 
@@ -54,6 +66,7 @@ func (r *userRepo) GetByEmail(ctx context.Context, email string) (*models.User, 
 
 	return &user, nil
 }
+
 func (r *userRepo) GetAll(ctx context.Context) ([]*models.User, error) {
 	ctx, span := tracer.NewSpan(ctx, "userRepo.GetAll", nil)
 	defer span.End()

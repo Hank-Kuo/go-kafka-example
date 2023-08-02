@@ -56,8 +56,9 @@ class MessageConsumer:
                 else:
                     data = json.loads(message.value().decode('utf-8'))
                     logging.info("[Consumer] Received message: {}".format(data))
-                    msg_process(data)
-                    self.consumer.commit(asynchronous=False)
+                    status = msg_process(data)
+                    if status:
+                        self.consumer.commit(asynchronous=False)
 
         except KeyboardInterrupt:
             logging.error("[Consumer] close server")

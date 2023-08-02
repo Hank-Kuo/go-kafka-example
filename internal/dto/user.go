@@ -21,3 +21,12 @@ type LoginResDto struct {
 	Status    bool      `json:"status"`
 	CreatedAt time.Time `json:"created_at"`
 }
+
+type UserActiveReqDto struct {
+	Email string `json:"email" binding:"required"`
+	OTP   string `json:"otp" binding:"required"`
+}
+
+type SendEmailReqDto struct {
+	Email string `json:"email" binding:"required"`
+}

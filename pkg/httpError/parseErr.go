@@ -4,13 +4,11 @@ import (
 	"context"
 	"database/sql"
 	"errors"
-	"fmt"
 	"net/http"
 	"strings"
 )
 
 func ParseError(err error) *Err {
-	fmt.Println(err.Error())
 	switch {
 	case errors.Is(err, sql.ErrNoRows):
 		return NewNotFoundError(err)

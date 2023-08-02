@@ -24,6 +24,8 @@ type Service interface {
 	PublishEmail(ctx context.Context, name, email string) error
 	Login(ctx context.Context, eamil, password string) (*dto.LoginResDto, error)
 	GetAll(ctx context.Context) ([]*models.User, error)
+	Active(ctx context.Context, email, optCode string) (bool, error)
+	GetByEmail(ctx context.Context, email string) (*models.User, error)
 }
 
 type userSrv struct {
@@ -101,7 +103,6 @@ func (srv *userSrv) GetAll(ctx context.Context) ([]*models.User, error) {
 
 	// ctx, cancel := context.WithTimeout(ctx, srv.cfg.Server.ContextTimeout) defer cancel()
 	return srv.userRepo.GetAll(c)
-
 }
 
 func (srv *userSrv) PublishEmail(ctx context.Context, name, email string) error {
@@ -120,4 +121,37 @@ func (srv *userSrv) PublishEmail(ctx context.Context, name, email string) error 
 	}
 
 	return nil
+}
+
+func (srv *userSrv) Active(ctx context.Context, email string, otpCode string) (bool, error) {
+	c, span := tracer.NewSpan(ctx, "UserService.PublishEmail", nil)
+	defer span.End()
+
+	token := utils.GetToken(email)
+	isValid, err := utils.ValidOTP(token, otpCode)
+
+	if err != nil {
+		tracer.AddSpanError(span, err)
+		return false, errors.Wrap(err, "UserService.Active")
+	}
+
+	if !isValid {
+		return false, &httpError.Err{
+			Status: http.StatusBadRequest, Message: "OTP code error", Detail: nil,
+		}
+
+	}
+
+	if err := srv.userRepo.Update(c, &models.User{Status: true, Email: email}); err != nil {
+		tracer.AddSpanError(span, err)
+		return false, errors.Wrap(err, "UserService.Active")
+	}
+
+	return isValid, nil
+}
+
+func (srv *userSrv) GetByEmail(ctx context.Context, email string) (*models.User, error) {
+	c, span := tracer.NewSpan(ctx, "UserService.GetByEmail", nil)
+	defer span.End()
+	return srv.userRepo.GetByEmail(c, email)
 }
