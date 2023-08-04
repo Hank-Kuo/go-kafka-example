@@ -1,7 +1,7 @@
 server:
   host: ${HOST}
   port: ${PORT}
-  debug: true
+  debug: ${DEBUG}
   readTimeout: 5
   writeTimeout: 5
   contextTimeout: 5
@@ -40,10 +40,12 @@ metric:
   url: "localhost:7070"
   serviceName: go-kafka-example
 
-kakfa:
-  brokers: 
-    - localhost:9092
-  topics: 
-    - name: user_email
-      partitions: 10
+
+kafka:
+  brokers: ${KAFKA_BROKER}
+  groupID: "customer-1"
+  topics:
+    user_email: 
+      name: user_email
+      partitions: 1
       replicationFactor: 1

@@ -12,7 +12,7 @@ import (
 type Config struct {
 	Server   ServerConfig   `mapstructure:"server"`
 	Database DatabaseConfig `mapstructure:"database"`
-	Kafka    KafkaConfig    `mapstructure:"kakfa"`
+	Kafka    KafkaConfig    `mapstructure:"kafka"`
 	Logger   LoggerConfig   `mapstructure:"logger"`
 	Jaeger   JaegerConfig   `mapstructure:"jaeger"`
 }
@@ -56,9 +56,11 @@ type topic struct {
 	Partition         int    `mapstructure:"partition"`
 	ReplicationFactor int    `mapstructure:"replicationFactor"`
 }
+
 type KafkaConfig struct {
-	Host      string  `mapstructure:"host"`
-	TopicName []topic `mapstructure:"topicName"`
+	Brokers []string         `mapstructure:"brokers"`
+	Topics  map[string]topic `mapstructure:"topics"`
+	GroupID string           `mapstructure:"groupID"`
 }
 
 type JaegerConfig struct {

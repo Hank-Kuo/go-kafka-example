@@ -31,9 +31,9 @@ provide APIs:
 
 ```bash
 make run-producer
-make run-consumer
+make run-consumer [Not Done]
 make py-consumer
-make py-producer
+make py-producer [Not Done]
 make docker-up
 make docker-down
 ```

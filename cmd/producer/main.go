@@ -43,9 +43,13 @@ func main() {
 		}
 	}()
 
-	kakfaWriter := kafka.NewWriter(cfg.Kafka.Host, "user_email")
+	kakfaWriter, err := kafka.NewWriter(cfg.Kafka, "user_email")
+	if err != nil {
+		apiLogger.Fatal("Can't connect with kafka", err)
+	}
 	defer kakfaWriter.Close()
-	// // init server
+
+	// init server
 	srv := server.NewServer(cfg, db, kakfaWriter, apiLogger)
 	if err = srv.Run(); err != nil {
 		apiLogger.Fatal(err)

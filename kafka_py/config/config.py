@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CONFIG = {
-    "broker": ["localhost:9092"],
+    "broker": os.getenv("KAFKA_BROKER").split(","),
     "topic": ["user_email"], 
     "producer_acks": "all",
     "producer_retries": 3,

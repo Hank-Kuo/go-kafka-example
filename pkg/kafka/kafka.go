@@ -1,24 +1,36 @@
 package kafka
 
 import (
+	"errors"
+	"go-kafka-example/config"
+
 	"github.com/segmentio/kafka-go"
 )
 
-func NewWriter(url string, topic string) *kafka.Writer {
-	return &kafka.Writer{
-		Addr:     kafka.TCP(url),
-		Topic:    topic,
-		Balancer: &kafka.LeastBytes{},
+func NewWriter(cfg config.KafkaConfig, topicName string) (*kafka.Writer, error) {
+	topic, ok := cfg.Topics[topicName]
+
+	if !ok {
+		return nil, errors.New("not found topic")
 	}
+
+	return &kafka.Writer{
+		Addr:     kafka.TCP(cfg.Brokers...),
+		Topic:    topic.Name,
+		Balancer: &kafka.LeastBytes{},
+	}, nil
 }
 
-func NewReader(url []string, topic string) *kafka.Reader {
-
+func NewReader(cfg config.KafkaConfig, topicName string) (*kafka.Reader, error) {
+	topic, ok := cfg.Topics[topicName]
+	if !ok {
+		return nil, errors.New("not found topic")
+	}
 	return kafka.NewReader(kafka.ReaderConfig{
-		Brokers:  url,
-		Topic:    topic,
+		Brokers:  cfg.Brokers,
+		Topic:    topic.Name,
 		MinBytes: 10e3,
 		MaxBytes: 10e6,
-		GroupID:  "customer-1",
-	})
+		GroupID:  cfg.GroupID,
+	}), nil
 }

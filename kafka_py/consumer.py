@@ -21,14 +21,13 @@ def main(message_consumer):
             
             otp_code = pyotp.TOTP(token, interval=60*15)
             email_server.send_mail(to_email, name, otp_code.now())
+            email_server.quit()
             return True
         except:
             return False
 
     message_consumer.listening(msg_process)
-    email_server.quit()
-
-
+    
 
 if __name__ == "__main__":
     logger.set_logger(CONFIG["logger_path"])
