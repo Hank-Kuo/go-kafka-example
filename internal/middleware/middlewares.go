@@ -21,6 +21,7 @@ func NewGlobalMiddlewares(engine *gin.Engine) {
 	engine.Use(corsMiddleware())
 	engine.NoMethod(httpNotFound)
 	engine.NoRoute(httpNotFound)
+	Healthz(engine)
 
 	m := ginmetrics.GetMonitor()
 

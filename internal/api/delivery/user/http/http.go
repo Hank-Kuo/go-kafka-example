@@ -32,7 +32,7 @@ func NewHandler(e *gin.RouterGroup, userSrv userSrv.Service, logger logger.Logge
 
 func (h *httpHandler) Register(c *gin.Context) {
 	ctx := c.Request.Context()
-	_, span := tracer.NewSpan(ctx, "UserHandler.Register", nil)
+	ctx, span := tracer.NewSpan(ctx, "UserHandler.Register", nil)
 	defer span.End()
 
 	var body dto.RegisterReqDto
@@ -58,7 +58,7 @@ func (h *httpHandler) Register(c *gin.Context) {
 
 func (h *httpHandler) SendEmail(c *gin.Context) {
 	ctx := c.Request.Context()
-	_, span := tracer.NewSpan(ctx, "UserHandler.Register", nil)
+	ctx, span := tracer.NewSpan(ctx, "UserHandler.Register", nil)
 	defer span.End()
 
 	var body dto.SendEmailReqDto
@@ -125,7 +125,7 @@ func (h *httpHandler) GetUsers(c *gin.Context) {
 
 func (h *httpHandler) UserActive(c *gin.Context) {
 	ctx := c.Request.Context()
-	_, span := tracer.NewSpan(ctx, "UserHandler.UserActive", nil)
+	ctx, span := tracer.NewSpan(ctx, "UserHandler.UserActive", nil)
 	defer span.End()
 
 	var body dto.UserActiveReqDto

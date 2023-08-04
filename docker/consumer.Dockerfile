@@ -19,9 +19,6 @@ RUN poetry config virtualenvs.create false \
 # Creating folders, and files for a project:
 COPY . /app
 
-
-
-EXPOSE 8000
-
 VOLUME [ "./assets" ]
-ENTRYPOINT ["./bin/main"]
+
+ENTRYPOINT ["poetry run"]

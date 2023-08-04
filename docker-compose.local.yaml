@@ -64,7 +64,7 @@ services:
       extra_hosts:
         - "host.docker.internal:host-gateway"
       volumes:
-        - ./config/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:Z
+        - ./config/monitoring/prometheus.local.yml:/etc/prometheus/prometheus.yml:Z
       command:
         - '--config.file=/etc/prometheus/prometheus.yml'
         - '--storage.tsdb.path=/prometheus'
