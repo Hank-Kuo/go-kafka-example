@@ -40,7 +40,10 @@ make docker-up
 make docker-down
 ```
 Screenshot
+![flow](./tmp/images/flow.png)
+
 ![OTP email example](./tmp/images/otp_email.png)
+
 
 stress testing for users
 Local testing for thread: 4, connect: 4
