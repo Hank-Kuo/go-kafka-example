@@ -2,11 +2,8 @@ package product
 
 import (
 	"context"
-	"fmt"
-	"net/http"
 
 	"go-kafka-example/config"
-	"go-kafka-example/pkg/httpError"
 	"go-kafka-example/pkg/utils"
 
 	userReop "go-kafka-example/internal/api/repository/user"
@@ -64,6 +61,11 @@ func (srv *userSrv) Register(ctx context.Context, user *dto.RegisterReqDto) erro
 		tracer.AddSpanError(span, err)
 		return errors.Wrap(err, "UserService.Register")
 	}
+
+	if err := srv.userRepo.PublishEmail(ctx, user.Email, user.Name); err != nil {
+		tracer.AddSpanError(span, err)
+		return errors.Wrap(err, "UserService.Register")
+	}
 	return nil
 }
 
@@ -82,9 +84,10 @@ func (srv *userSrv) Login(ctx context.Context, email string, password string) (*
 	}
 
 	if !user.Status {
-		return nil, &httpError.Err{
-			Status: http.StatusUnauthorized, Message: "not activate your email", Detail: nil,
-		}
+		return nil, errors.New("Your email isn't active")
+		// &httpError.Err{
+		// 	Status: http.StatusUnauthorized, Message: "please activate your email", Detail: nil,
+		// }
 	}
 
 	return &dto.LoginResDto{
@@ -109,17 +112,10 @@ func (srv *userSrv) PublishEmail(ctx context.Context, name, email string) error 
 	ctx, span := tracer.NewSpan(ctx, "UserService.PublishEmail", nil)
 	defer span.End()
 
-	msg := kafka.Message{
-		Value: []byte(fmt.Sprintf(`{"email": "%s", "name": "%s"}`, email, name)),
-	}
-
-	err := srv.kakfaWriter.WriteMessages(ctx, msg)
-
-	if err != nil {
+	if err := srv.userRepo.PublishEmail(ctx, email, name); err != nil {
 		tracer.AddSpanError(span, err)
-		return errors.Wrap(err, "UserService.PublishEmail")
+		return errors.Wrap(err, "UserService.Register")
 	}
-
 	return nil
 }
 
@@ -136,9 +132,10 @@ func (srv *userSrv) Active(ctx context.Context, email string, otpCode string) (b
 	}
 
 	if !isValid {
-		return false, &httpError.Err{
-			Status: http.StatusBadRequest, Message: "OTP code error", Detail: nil,
-		}
+		return false, errors.New("OTP code error")
+		// &httpError.Err{
+		// 	Status: http.StatusBadRequest, Message: "OTP code error", Detail: nil,
+		// }
 
 	}
 
@@ -153,5 +150,11 @@ func (srv *userSrv) Active(ctx context.Context, email string, otpCode string) (b
 func (srv *userSrv) GetByEmail(ctx context.Context, email string) (*models.User, error) {
 	ctx, span := tracer.NewSpan(ctx, "UserService.GetByEmail", nil)
 	defer span.End()
-	return srv.userRepo.GetByEmail(ctx, email)
+
+	user, err := srv.userRepo.GetByEmail(ctx, email)
+	if err != nil {
+		tracer.AddSpanError(span, err)
+		return nil, errors.Wrap(err, "UserService.GetByEmail")
+	}
+	return user, nil
 }

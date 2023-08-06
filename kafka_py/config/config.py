@@ -4,6 +4,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CONFIG = {
+    "host": os.getenv("CONSUMER_HOST"),
+    "port": int(os.getenv("CONSUMER_PORT")),
+    "reload": (os.getenv('CONSUMER_DEBUG', 'false') == 'true'),
+    "worker": int(os.getenv("CONSUMER_WORKER")),
+
     "broker": os.getenv("KAFKA_BROKER").split(","),
     "topic": ["user_email"], 
     "producer_acks": "all",

@@ -1,3 +1,4 @@
+import sys
 import json
 import logging
 
@@ -43,8 +44,8 @@ class MessageConsumer:
     
     def listening(self, msg_process):
         logging.info("[Consumer] start listening...")
-        try:
-            while True:
+        while True:
+            try:
                 message = self.consumer.poll(timeout=1.0)
                 if message is None: 
                     continue 
@@ -60,10 +61,11 @@ class MessageConsumer:
                     if status:
                         self.consumer.commit(asynchronous=False)
 
-        except KeyboardInterrupt:
-            logging.error("[Consumer] close server")
-        finally:
-            self.consumer.close()
+            except Exception as err:
+                logging.error("[Consumer]: ", str(err))
+                
+            
+                
 
         
 

@@ -47,12 +47,6 @@ func (h *httpHandler) Register(c *gin.Context) {
 		return
 	}
 
-	if err := h.userSrv.PublishEmail(ctx, body.Name, body.Email); err != nil {
-		tracer.AddSpanError(span, err)
-		response.Fail(err, h.logger).ToJSON(c)
-		return
-	}
-
 	response.OK(http.StatusOK, "register successfully", nil).ToJSON(c)
 }
 

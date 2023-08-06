@@ -1,16 +1,18 @@
 [tool.poetry]
-name = "go-kafka-example"
+name = "kafka_py"
 version = "0.1.0"
 description = ""
 authors = ["Hank.Kuo <asdf024681029@gmail.com>"]
 readme = "README.md"
-packages = [{include = "go_kafka_example"}]
+packages = [{include = "kafka_py"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 python-dotenv = "^1.0.0"
 pyotp = "^2.9.0"
 confluent-kafka = "^2.2.0"
+fastapi = "^0.101.0"
+uvicorn = "^0.23.2"
 
 
 [build-system]

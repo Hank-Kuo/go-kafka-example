@@ -16,6 +16,22 @@ services:
         - grafana
       networks:
         - web_api
+    
+    consumer_app:
+      build: 
+        context: .
+        dockerfile: ./docker/consumer.Dockerfile
+      ports:
+        - 8001:8001
+      restart: always
+      depends_on:
+        - kafka
+        - postgesql
+        - prometheus
+        - node_exporter
+        - grafana
+      networks:
+        - web_api
     zookeeper:
       image: wurstmeister/zookeeper
       ports:

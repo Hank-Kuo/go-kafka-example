@@ -9,7 +9,7 @@ import (
 func (s *Server) registerHttpHanders() {
 	api := s.engine.Group("/api")
 
-	userRepo := userRepository.NewRepo(s.db)
+	userRepo := userRepository.NewRepo(s.db, s.kakfaWriter)
 	userSrv := userService.NewService(s.cfg, userRepo, s.kakfaWriter, s.logger)
 	userHttpDelivery.NewHandler(api, userSrv, s.logger)
 

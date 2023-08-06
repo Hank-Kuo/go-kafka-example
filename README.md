@@ -91,10 +91,6 @@ Screenshot
 
 
 refactor: 
-- kafka logic  
-- healthz check 
+- error ?
 - grpc ? 
 
-python
-- docker
-- healthz check
