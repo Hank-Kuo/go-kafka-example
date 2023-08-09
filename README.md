@@ -1,27 +1,29 @@
 # GO-KAFAK-EXAMPLE
 ## Library 
-- kafka: wurstmeister/kafka
-- zookeeper: wurstmeister/zookeeper
-- kowl: UI dashboard for kafka
-- postgesql: Relation database
-- prometheus: monitor & alert tool
-- node_exporter
-- grafana: UI dashboard
-- jaeger: trace serve request 
-- gin: go http server
-- go-kakfa: go kafka's third-party lib 
-- go-migrate: db migration lib
-- sqlx: go db third-party lib
-- viper: go config lib 
-- fastAPI: python http server
-- confluent-kafka: python third-party lib
-- poetry: python lib management
+- **kafka**: wurstmeister/kafka
+- **zookeeper**: wurstmeister/zookeeper
+- **kowl**: UI dashboard for kafka
+- **postgesql**: Relation database
+- **prometheus**: monitor & alert tool
+- **node_exporter**
+- **grafana**: UI dashboard
+- **jaeger**: trace serve request 
+- **gin**: go http server
+- **grpc**: go grpc server
+- **go-kakfa**: go kafka's third-party lib 
+- **go-migrate**: db migration lib
+- **sqlx**: go db third-party lib
+- **viper**: go config lib 
+- **fastAPI**: python http server
+- **confluent-kafka**: python third-party lib
+- **poetry**: python lib management
 
 ## API
 Build up auth/user system that can register and login.
 If user sign up, the system will send a verification code's mail to your mail.
 
-Listen in http://localhost:8000/api
+Listen in http://localhost:8000/api for http APIs
+Listen in localhost:50051 for grpc APIs
 
 provide http APIs:
 - /healthz
@@ -33,9 +35,9 @@ provide http APIs:
 
 ```bash
 make run-producer
-make run-consumer [Not Done]
-make py-consumer
-make py-producer [Not Done]
+make run-consumer
+make local
+
 make docker-up
 make docker-down
 ```
@@ -48,7 +50,7 @@ Screenshot
 **Stress testing**
 stress testing for http `/users` api 
 
-Using thread: 4, connect: 4
+Using thread: 4, connect: 4 by wrk
 
 <pre>
 QPS      50%     75%     90%      99% 
@@ -57,6 +59,7 @@ QPS      50%     75%     90%      99%
 
 stress testing for grpc `/users` api 
 
+Using thread: 4, connect: 4 by ghz
 <pre>
 QPS      50%     75%     90%      99% 
 
