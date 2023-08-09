@@ -1,7 +1,15 @@
 run-producer:
 	go run ./cmd/producer/main.go
+run-consumer:
+	poetry run python -m kafka_py.consumer
+py-consumer:
+	poetry run python -m kafka_py.consumer
 
-local-up:
+pb-complier:
+	@echo Compiling $$APP proto...
+	@protoc --go_out=./ --go-grpc_out=require_unimplemented_servers=false:. ./pb/$$APP/*.proto
+	
+local:
 	docker-compose -f docker-compose.local.yaml up -d
 
 docker-up:
@@ -20,8 +28,10 @@ migrate-down:
 migrate-force:	
 	migrate --verbose -database "postgres://postgres:postgres@localhost:5432/db?sslmode=disable" -path migrations force ${V}
 
-py-consumer:
-	poetry run python -m kafka_py.consumer
-
 poetry-export:
 	poetry export -f requirements.txt --without-hashes > requirements.txt
+
+
+linter:
+	@echo Starting linters
+	golangci-lint run ./...

@@ -1,6 +1,8 @@
 server:
   host: ${HOST}
   port: ${PORT}
+  grpcHost: ${GRPC_HOST}
+  grpcPort: ${GRPC_PORT}
   debug: ${DEBUG}
   readTimeout: 5
   writeTimeout: 5

@@ -51,8 +51,9 @@ func main() {
 
 	// init server
 	srv := server.NewServer(cfg, db, kakfaWriter, apiLogger)
-	if err = srv.Run(); err != nil {
-		apiLogger.Fatal(err)
-	}
+	srv.Run()
+	// if err = ; err != nil {
+	// 	apiLogger.Fatal(err)
+	// }
 
 }

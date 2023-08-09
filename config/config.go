@@ -20,6 +20,8 @@ type Config struct {
 type ServerConfig struct {
 	Host           string        `mapstructure:"host"`
 	Port           string        `mapstructure:"port"`
+	GrpcHost       string        `mapstructure:"grpcHost"`
+	GrpcPort       string        `mapstructure:"grpcPort"`
 	Debug          bool          `mapstructure:"debug"`
 	ReadTimeout    time.Duration `mapstructure:"readTimeout"`
 	WriteTimeout   time.Duration `mapstructure:"writeTimeout"`

@@ -38,35 +38,35 @@ func NewError(httpCode int, message string, err error) *Err {
 
 func NewNotFoundError(err error) *Err {
 	return &Err{
-		http.StatusNotFound, customError.NotFoundError.Error(), err,
+		http.StatusNotFound, customError.ErrNotFound.Error(), err,
 	}
 }
 
 func NewInternalServerError(err error) *Err {
 	return &Err{
-		http.StatusInternalServerError, customError.InternalServerError.Error(), err,
+		http.StatusInternalServerError, customError.ErrInternalServerError.Error(), err,
 	}
 }
 
 func NewBadRequestError(err error) *Err {
 	return &Err{
-		http.StatusBadRequest, customError.BadRequestError.Error(), err,
+		http.StatusBadRequest, customError.ErrBadRequest.Error(), err,
 	}
 }
 
 func NewUnauthorizedError(err error) *Err {
 	return &Err{
-		http.StatusUnauthorized, customError.UnauthorizedError.Error(), err,
+		http.StatusUnauthorized, customError.ErrUnauthorized.Error(), err,
 	}
 }
 func NewRequestTimeoutError(err error) *Err {
 	return &Err{
-		http.StatusRequestTimeout, customError.RequestTimeoutError.Error(), err,
+		http.StatusRequestTimeout, customError.ErrRequestTimeoutError.Error(), err,
 	}
 }
 
 func NewBadQueryParamsError(err error) *Err {
 	return &Err{
-		http.StatusBadRequest, customError.BadQueryParamsError.Error(), err,
+		http.StatusBadRequest, customError.ErrBadQueryParams.Error(), err,
 	}
 }

@@ -1,9 +1,9 @@
-package response
+package http_response
 
 import (
 	"github.com/gin-gonic/gin"
 
-	"go-kafka-example/pkg/httpError"
+	"go-kafka-example/pkg/customError/httpError"
 	"go-kafka-example/pkg/logger"
 )
 
@@ -27,7 +27,9 @@ func OK(statusCode int, message string, data interface{}) *response {
 
 func Fail(err error, logger logger.Logger) *response {
 	parseErr := httpError.ParseError(err)
-	logger.Error(parseErr.Detail)
+	if parseErr.Detail != nil {
+		logger.Error(parseErr.Detail)
+	}
 	return &response{
 		parseErr.GetStatus(),
 		&responseBody{Status: "fail", Message: parseErr.GetMessage()},

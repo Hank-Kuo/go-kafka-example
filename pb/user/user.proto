@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package user;
+
+option go_package = "./pb/user";
+
+service UserService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc UserActive(UserActiveRequest) returns (UserActiveResponse);
+  rpc GetUsers(GetUsersRequest) returns (GetUsersResponse);
+  rpc SendEmail(SendEmailRequest) returns (SendEmailResponse);
+}
+
+message User{
+  string id = 1;
+  string password = 2;
+  string email = 3;
+  string name = 4;
+  bool status = 5;
+  google.protobuf.Timestamp CreatedAt = 6;
+}
+
+message RegisterRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message RegisterResponse {
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  bool status = 4;
+  google.protobuf.Timestamp CreatedAt = 5;
+}
+
+  
+message UserActiveRequest {
+  string email = 1;
+  string otp = 2;
+}
+
+message UserActiveResponse {}
+
+message SendEmailRequest {
+  string email = 1;
+}
+  
+message SendEmailResponse {}
+
+message GetUsersRequest {}
+
+message GetUsersResponse {
+  repeated User user = 1;
+}
