@@ -53,14 +53,14 @@ Using thread: 4, connect: 4
 <pre>
 QPS      50%     75%     90%      99% 
 1349.12  1.89ms  7.23ms  16.11ms  32.82ms
-<pre>
+</pre>
 
 stress testing for grpc `/users` api 
 
 <pre>
 QPS      50%     75%     90%      99% 
 
-<pre>
+</pre>
 
 ## Jaeger
 Tracing service
