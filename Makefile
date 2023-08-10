@@ -35,3 +35,11 @@ poetry-export:
 linter:
 	@echo Starting linters
 	golangci-lint run ./...
+
+curl:
+	curl localhost:8000/api/users 
+	grpcurl -plaintext 127.0.0.1:50051 user.UserService/GetUsers
+
+stress-test:
+	wrk -t 4 -c 4 localhost:8000/api/users 
+	ghz --insecure --proto ./pb/user/user.proto --call user.UserService/GetUsers localhost:50051

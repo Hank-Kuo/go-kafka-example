@@ -61,8 +61,8 @@ stress testing for grpc `/users` api
 
 Using thread: 4, connect: 4 by ghz
 <pre>
-QPS      50%     75%     90%      99% 
-
+QPS      50%      75%        90%        99% 
+681.15   3.56 ms  119.88 ms  202.65 ms  236.52 ms 
 </pre>
 
 ## Jaeger
@@ -104,5 +104,6 @@ Host: http://localhost:8080
 Screenshot
 ![kowl](./tmp/images/kowl.png)
 
-- grpc middleware ... and tracing !? 
+- grpc middleware  !? 
+    - request validation
 
