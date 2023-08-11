@@ -41,5 +41,5 @@ curl:
 	grpcurl -plaintext 127.0.0.1:50051 user.UserService/GetUsers
 
 stress-test:
-	wrk -t 4 -c 4 localhost:8000/api/users 
+	wrk -t4 -c4 http://localhost:8000/api/users 
 	ghz --insecure --proto ./pb/user/user.proto --call user.UserService/GetUsers localhost:50051

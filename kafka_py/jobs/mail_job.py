@@ -1,7 +1,7 @@
 import asyncio
 import threading
 import pyotp
-
+import logging
 
 from kafka_py.utils.email import Email
 from kafka_py.utils.otp import get_token
@@ -22,7 +22,8 @@ def mail_job(message_consumer):
             email_server.send_mail(to_email, name, otp_code.now())
             email_server.quit()
             return True
-        except:
+        except Exception as err:
+            logging.info(err)
             return False
 
     message_consumer.listening(msg_process)

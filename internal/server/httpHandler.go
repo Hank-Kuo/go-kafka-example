@@ -4,7 +4,7 @@ import (
 	userDelivery "go-kafka-example/internal/api/delivery/user"
 	userRepository "go-kafka-example/internal/api/repository/user"
 	userService "go-kafka-example/internal/api/service/user"
-	"go-kafka-example/internal/middleware"
+	http_middleware "go-kafka-example/internal/middleware/http"
 	"net/http"
 	"time"
 
@@ -35,7 +35,7 @@ func (s *Server) newHttpServer() *http.Server {
 	}
 
 	engine := gin.Default()
-	middleware.NewGlobalMiddlewares(engine)
+	http_middleware.NewGlobalMiddlewares(engine)
 
 	s.registerHttpHanders(engine)
 

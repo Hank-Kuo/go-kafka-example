@@ -59,7 +59,7 @@ func (srv *userSrv) Register(ctx context.Context, user *models.User) error {
 		return errors.Wrap(err, "UserService.Register")
 	}
 
-	if err := srv.userRepo.PublishEmail(ctx, user.Email, user.Name); err != nil {
+	if err := srv.userRepo.PublishEmail(ctx, user.Name, user.Email); err != nil {
 		tracer.AddSpanError(span, err)
 		return errors.Wrap(err, "UserService.Register")
 	}
@@ -106,7 +106,7 @@ func (srv *userSrv) PublishEmail(ctx context.Context, name, email string) error 
 	ctx, span := tracer.NewSpan(ctx, "UserService.PublishEmail", nil)
 	defer span.End()
 
-	if err := srv.userRepo.PublishEmail(ctx, email, name); err != nil {
+	if err := srv.userRepo.PublishEmail(ctx, name, email); err != nil {
 		tracer.AddSpanError(span, err)
 		return errors.Wrap(err, "UserService.Register")
 	}

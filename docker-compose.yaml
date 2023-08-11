@@ -7,6 +7,7 @@ services:
         dockerfile: ./docker/producer.Dockerfile
       ports:
         - 8000:8000
+        - 50051:50051
       restart: always
       depends_on:
         - kafka

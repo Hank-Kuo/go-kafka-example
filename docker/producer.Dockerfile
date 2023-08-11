@@ -9,6 +9,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 go build -o bin/ cmd/producer/main.go
 
 EXPOSE 8000
+EXPOSE 50051
 
 VOLUME [ "./assets" ]
 ENTRYPOINT ["./bin/main"]

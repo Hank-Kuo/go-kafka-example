@@ -3,32 +3,6 @@ import json
 import logging
 
 from confluent_kafka import Producer, Consumer, KafkaError, KafkaException
-# from kafka import KafkaConsumer, KafkaProducer
-# from kafka.admin import KafkaAdminClient, NewTopic
-
-
-"""
-class MessageProducer1:
-    def __init__(self, cfg):
-        self.broker = cfg["broker"]
-        self.topic = cfg["topic"] 
-        self.producer = KafkaProducer(
-            bootstrap_servers = self.broker,
-            value_serializer = lambda v: json.dumps(v).encode('utf-8'),
-            acks=cfg["producer_acks"], retries = cfg["producer_retries"],
-        )
-        logging.info("Connect with kafka server...")
-
-
-    def delivery_message(self, data):
-        logging.info("[Producer] Send messages: {}".format(str(data)))
-        try:
-            future = self.producer.send(self.topic, data)
-            self.producer.flush()
-            future.get()
-        except Exception as err:
-            logging.error("[Producer][Fail] Send messages: {}".format(str(err)))
-"""
 
 
 class MessageConsumer:
@@ -52,14 +26,17 @@ class MessageConsumer:
                 if message.error():
                     if message.error().code() == KafkaError._PARTITION_EOF:
                         pass
-                    elif message.error():
-                        raise KafkaException(message.error())
+                    # elif message.error():
+                        # raise KafkaException(message.error())
                 else:
                     data = json.loads(message.value().decode('utf-8'))
                     logging.info("[Consumer] Received message: {}".format(data))
                     status = msg_process(data)
                     if status:
                         self.consumer.commit(asynchronous=False)
+                        logging.info("[Consumer] Job process successful")
+                    else:
+                        logging.info("[Consumer] Job process fail")
 
             except Exception as err:
                 logging.error("[Consumer]: ", str(err))
@@ -68,7 +45,7 @@ class MessageConsumer:
                 
 
         
-
+"""
 class MessageProducer:
     def __init__(self, cfg):
         conf = {
@@ -97,7 +74,7 @@ class MessageProducer:
             logging.error("[Producer][Fail] Send messages: {}: {}".format(str(data), str(err)))
    
 
-"""
+
 def create_topics(topic_names, partition_num, replication_factor):
     admin_client = KafkaAdminClient(bootstrap_servers=brokers)
     topic = NewTopic(name=topic_names, num_partitions=partition_num, replication_factor=replication_factor)

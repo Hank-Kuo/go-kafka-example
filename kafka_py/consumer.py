@@ -9,7 +9,6 @@ from kafka_py.utils import logger
 
 if __name__ == "__main__":
     logger.set_logger(CONFIG["logger_path"])
-
     # background
     message_consumer = MessageConsumer(CONFIG)
     t1 = threading.Thread(target=mail_job, daemon=True, args=(message_consumer,))
