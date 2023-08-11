@@ -3,9 +3,8 @@ package product
 import (
 	"context"
 
-	"go-kafka-example/internal/models"
-	"go-kafka-example/pkg/tracer"
-
+	"github.com/Hank-Kuo/go-kafka-example/internal/models"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 	"github.com/pkg/errors"
 )
 

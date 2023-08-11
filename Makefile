@@ -2,8 +2,6 @@ run-producer:
 	go run ./cmd/producer/main.go
 run-consumer:
 	poetry run python -m kafka_py.consumer
-py-consumer:
-	poetry run python -m kafka_py.consumer
 
 pb-complier:
 	@echo Compiling $$APP proto...

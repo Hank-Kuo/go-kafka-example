@@ -1,8 +1,8 @@
 package tracer
 
 import (
-	"go-kafka-example/config"
-	"go-kafka-example/pkg/version"
+	"github.com/Hank-Kuo/go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/version"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/jaeger"

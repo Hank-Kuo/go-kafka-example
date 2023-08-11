@@ -2,8 +2,9 @@ package httpError
 
 import (
 	"fmt"
-	"go-kafka-example/pkg/customError"
 	"net/http"
+
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
 )
 
 type Err struct {

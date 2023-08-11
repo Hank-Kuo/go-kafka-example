@@ -1,8 +1,8 @@
 package grpc_response
 
 import (
-	"go-kafka-example/pkg/customError/grpcError"
-	"go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError/grpcError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
 
 	"google.golang.org/grpc/status"
 )

@@ -11,8 +11,8 @@ import (
 	"github.com/segmentio/kafka-go"
 	"google.golang.org/grpc"
 
-	"go-kafka-example/config"
-	"go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
 )
 
 type Server struct {

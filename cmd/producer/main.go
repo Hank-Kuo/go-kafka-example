@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"go-kafka-example/config"
-	"go-kafka-example/internal/server"
-	"go-kafka-example/pkg/database"
-	"go-kafka-example/pkg/kafka"
-	"go-kafka-example/pkg/logger"
-	"go-kafka-example/pkg/tracer"
-
 	"log"
+
+	"github.com/Hank-Kuo/go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/internal/server"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/database"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/kafka"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 )
 
 func main() {

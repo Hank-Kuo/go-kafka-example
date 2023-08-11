@@ -1,12 +1,13 @@
 package server
 
 import (
-	userDelivery "go-kafka-example/internal/api/delivery/user"
-	userRepository "go-kafka-example/internal/api/repository/user"
-	userService "go-kafka-example/internal/api/service/user"
-	http_middleware "go-kafka-example/internal/middleware/http"
 	"net/http"
 	"time"
+
+	userDelivery "github.com/Hank-Kuo/go-kafka-example/internal/api/delivery/user"
+	userRepository "github.com/Hank-Kuo/go-kafka-example/internal/api/repository/user"
+	userService "github.com/Hank-Kuo/go-kafka-example/internal/api/service/user"
+	http_middleware "github.com/Hank-Kuo/go-kafka-example/internal/middleware/http"
 
 	"github.com/gin-gonic/gin"
 )

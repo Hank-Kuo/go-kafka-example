@@ -2,13 +2,14 @@ package user
 
 import (
 	"context"
-	userSrv "go-kafka-example/internal/api/service/user"
-	"go-kafka-example/internal/models"
-	userPb "go-kafka-example/pb/user"
-	"go-kafka-example/pkg/customError"
-	"go-kafka-example/pkg/logger"
-	"go-kafka-example/pkg/response/grpc_response"
-	"go-kafka-example/pkg/tracer"
+
+	userSrv "github.com/Hank-Kuo/go-kafka-example/internal/api/service/user"
+	"github.com/Hank-Kuo/go-kafka-example/internal/models"
+	userPb "github.com/Hank-Kuo/go-kafka-example/pb/user"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/response/grpc_response"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

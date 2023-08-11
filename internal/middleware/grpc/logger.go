@@ -2,10 +2,11 @@ package grpc
 
 import (
 	"context"
-	"go-kafka-example/pkg/logger"
 	"net"
 	"strings"
 	"time"
+
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/peer"

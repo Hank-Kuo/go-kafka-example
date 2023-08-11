@@ -5,13 +5,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	userSrv "go-kafka-example/internal/api/service/user"
-	"go-kafka-example/internal/dto"
-	"go-kafka-example/internal/models"
-	"go-kafka-example/pkg/customError"
-	"go-kafka-example/pkg/logger"
-	"go-kafka-example/pkg/response/http_response"
-	"go-kafka-example/pkg/tracer"
+	userSrv "github.com/Hank-Kuo/go-kafka-example/internal/api/service/user"
+	"github.com/Hank-Kuo/go-kafka-example/internal/dto"
+	"github.com/Hank-Kuo/go-kafka-example/internal/models"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/response/http_response"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 )
 
 type httpHandler struct {

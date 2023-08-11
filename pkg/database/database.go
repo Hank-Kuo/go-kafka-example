@@ -9,7 +9,7 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 
-	"go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/config"
 )
 
 func ConnectDB(cfg *config.DatabaseConfig) (*sqlx.DB, error) {

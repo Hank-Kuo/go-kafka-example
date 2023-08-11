@@ -3,8 +3,8 @@ package product
 import (
 	"context"
 	"fmt"
-	"go-kafka-example/pkg/tracer"
 
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 	"github.com/pkg/errors"
 	"github.com/segmentio/kafka-go"
 )

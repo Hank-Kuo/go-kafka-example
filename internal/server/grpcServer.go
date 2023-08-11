@@ -4,12 +4,12 @@ import (
 	"net"
 	"time"
 
-	userDelivery "go-kafka-example/internal/api/delivery/user"
-	userRepository "go-kafka-example/internal/api/repository/user"
-	userService "go-kafka-example/internal/api/service/user"
-	userPb "go-kafka-example/pb/user"
+	userDelivery "github.com/Hank-Kuo/go-kafka-example/internal/api/delivery/user"
+	userRepository "github.com/Hank-Kuo/go-kafka-example/internal/api/repository/user"
+	userService "github.com/Hank-Kuo/go-kafka-example/internal/api/service/user"
+	userPb "github.com/Hank-Kuo/go-kafka-example/pb/user"
 
-	grpc_middleware "go-kafka-example/internal/middleware/grpc"
+	grpc_middleware "github.com/Hank-Kuo/go-kafka-example/internal/middleware/grpc"
 
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"

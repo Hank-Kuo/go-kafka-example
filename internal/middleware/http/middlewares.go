@@ -1,8 +1,8 @@
 package http
 
 import (
-	"go-kafka-example/config"
-	"go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
 
 	"github.com/gin-gonic/gin"
 	"github.com/penglongli/gin-metrics/ginmetrics"

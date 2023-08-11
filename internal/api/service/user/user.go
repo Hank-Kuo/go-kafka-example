@@ -3,15 +3,15 @@ package product
 import (
 	"context"
 
-	"go-kafka-example/config"
-	"go-kafka-example/pkg/customError"
-	"go-kafka-example/pkg/utils"
+	"github.com/Hank-Kuo/go-kafka-example/config"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/utils"
 
-	userReop "go-kafka-example/internal/api/repository/user"
-	"go-kafka-example/internal/dto"
-	"go-kafka-example/internal/models"
-	"go-kafka-example/pkg/logger"
-	"go-kafka-example/pkg/tracer"
+	userReop "github.com/Hank-Kuo/go-kafka-example/internal/api/repository/user"
+	"github.com/Hank-Kuo/go-kafka-example/internal/dto"
+	"github.com/Hank-Kuo/go-kafka-example/internal/models"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/tracer"
 
 	"github.com/pkg/errors"
 	"github.com/segmentio/kafka-go"

@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"go-kafka-example/pkg/customError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
 
 	"github.com/go-playground/validator/v10"
 	"github.com/lib/pq"

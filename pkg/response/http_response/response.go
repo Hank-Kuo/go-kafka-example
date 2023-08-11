@@ -3,8 +3,8 @@ package http_response
 import (
 	"github.com/gin-gonic/gin"
 
-	"go-kafka-example/pkg/customError/httpError"
-	"go-kafka-example/pkg/logger"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError/httpError"
+	"github.com/Hank-Kuo/go-kafka-example/pkg/logger"
 )
 
 type response struct {

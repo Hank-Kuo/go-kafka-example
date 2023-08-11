@@ -5,9 +5,10 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"go-kafka-example/pkg/customError"
 	"net/http"
 	"strings"
+
+	"github.com/Hank-Kuo/go-kafka-example/pkg/customError"
 
 	"github.com/lib/pq"
 	"google.golang.org/grpc/codes"

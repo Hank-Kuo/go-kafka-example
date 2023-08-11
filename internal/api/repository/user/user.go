@@ -3,8 +3,7 @@ package product
 import (
 	"context"
 
-	"go-kafka-example/internal/models"
-
+	"github.com/Hank-Kuo/go-kafka-example/internal/models"
 	"github.com/jmoiron/sqlx"
 	"github.com/segmentio/kafka-go"
 )

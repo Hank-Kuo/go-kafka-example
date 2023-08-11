@@ -2,7 +2,8 @@ package kafka
 
 import (
 	"errors"
-	"go-kafka-example/config"
+
+	"github.com/Hank-Kuo/go-kafka-example/config"
 
 	"github.com/segmentio/kafka-go"
 )
